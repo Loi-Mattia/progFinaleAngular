@@ -1,1 +1,11 @@
-<p>menu works!</p>
+<div class="menu-container">
+    <div class="menu-item"*ngFor="let name of names">
+        <div class="over-hidden">
+        <div class="menu-image" style="background-image: url('https://gamebrott.com/wp-content/uploads/2017/04/Konami-logo.jpg')"></div> 
+        </div>
+        <div>
+            <app-home [name] = "name"> </app-home>
+        </div>
+    </div>  
+</div>
+

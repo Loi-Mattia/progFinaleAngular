@@ -7,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
-
+  
+  names:string[];
+  constructor() { 
+    this.names=["pino","mino","rino","luigi","mario","matteo","marco","gianni","giorgio"]
+  }
   ngOnInit(): void {
   }
 
