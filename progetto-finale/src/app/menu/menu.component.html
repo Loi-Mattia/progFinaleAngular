@@ -1,11 +1,10 @@
 <div class="menu-container">
-    <div class="menu-item"*ngFor="let name of names">
+    <div class="menu-item"*ngFor="let item of menuItems">
         <div class="over-hidden">
-        <div class="menu-image" style="background-image: url('https://gamebrott.com/wp-content/uploads/2017/04/Konami-logo.jpg')"></div> 
+        <div class="menu-image" style="background-image: url('{{item.image_url}}')"></div> 
         </div>
-        <div>
-            <app-home [name] = "name"> </app-home>
+        <div class="menu-item-name">
+            {{item.home_prod}}
         </div>
     </div>  
 </div>
-

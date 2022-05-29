@@ -1,62 +1,97 @@
-from flask import Flask , request, jsonify, Response,render_template, make_response, redirect
-from flask_restful import Resource , Api ,reqparse
+from flask import Flask 
 from flask_cors import CORS , cross_origin
-from bson import json_util
 import os
-import pandas as pd
 import pymongo
 import json
+
 #import rec
 
 from flask_pymongo import PyMongo
 
-myclient = pymongo.MongoClient("mongodb://Loi:IIeee1mm@cluster0-shard-00-00.ujobt.mongodb.net:27017,cluster0-shard-00-01.ujobt.mongodb.net:27017,cluster0-shard-00-02.ujobt.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-qtdhit-shard-0&authSource=admin&retryWrites=true&w=majority")
-mydb = myclient["videogamesDB"]
-mycol = mydb["homeP"]
-print(mycol)
 
 app = Flask(__name__)
 CORS(app)
 app.config["DEBUG"] = True
 
+class prod_details: 
+    def __init__(self, home_prod, site, born_year, num_games, val_home, country_home, fatt, founders,num_workers, coords, image_url): 
+        self.home_prod = home_prod
+        self.site = site
+        self.born_year = born_year
+        self.num_games = num_games
+        self.val_home = val_home
+        self.country_home = country_home
+        self.fatt = fatt
+        self.founders = founders
+        self.num_workers = num_workers
+        self.coords = coords
+        self.image_url = image_url
+        
 
+class create_dict(dict): 
+    def __init__(self): 
+        self = dict() 
+    def add(self, key, value): 
+        self[key] = value 
+
+#endpoint eleco case per il menu
 @app.route('/', methods=['GET'])
-
-
 def home():
     myclient = pymongo.MongoClient("mongodb://Loi:IIeee1mm@cluster0-shard-00-00.ujobt.mongodb.net:27017,cluster0-shard-00-01.ujobt.mongodb.net:27017,cluster0-shard-00-02.ujobt.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-qtdhit-shard-0&authSource=admin&retryWrites=true&w=majority")
     mydb = myclient["videogamesDB"]
     mycol = mydb["homeP"]
     
-    class create_dict(dict): 
-        # __init__ function 
-        def __init__(self): 
-            self = dict() 
-        # Function to add key:value 
-        def add(self, key, value): 
-            self[key] = value 
+    list = [] 
 
-
-    mydict = create_dict()
-    
     for curRow in mycol.find():
-        mydict.add(curRow['home_prod'], ({ "site":curRow['site'], 
-                         "born_year":curRow['born_year'],
-                         "num_games":curRow['num_games'],
-                         "val_home":curRow['val_home'],
-                         "country_home":curRow['country_home'],
-                         "fatt":curRow['fatt'],
-                         "founders":curRow['founders'],
-                         "num_workers":curRow['num_workers'],
-                         "coords":curRow['coords'],
-                         "image_url":curRow['image_url']
-                        }))
-        
+        list.append( prod_details(
+        curRow['home_prod'], 
+        curRow['site'],
+        curRow['born_year'],
+        curRow['num_games'],
+        curRow['val_home'],
+        curRow['country_home'],
+        curRow['fatt'],
+        curRow['founders'],
+        curRow['num_workers'],
+        curRow['coords'],
+        curRow['image_url']
+        ) )
 
-    stud_json = json.dumps(mydict, indent=2, sort_keys=True)
+    
+    json_result = json.dumps(list, default = lambda x: x.__dict__);
 
-    return(stud_json) 
+    return(json_result) 
 
+#endpoint dettaglio casa produttrice
+@app.route('/Details/<name>', methods=['GET'])
+def Details(name):
+    
+    myclient = pymongo.MongoClient("mongodb://Loi:IIeee1mm@cluster0-shard-00-00.ujobt.mongodb.net:27017,cluster0-shard-00-01.ujobt.mongodb.net:27017,cluster0-shard-00-02.ujobt.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-qtdhit-shard-0&authSource=admin&retryWrites=true&w=majority")
+    mydb = myclient["videogamesDB"]
+    mycol = mydb["homeP"]
+    
+    list = [] 
+
+    for curRow in mycol.find({"home_prod":{"$regex":name}}):
+        list.append( prod_details(
+        curRow['home_prod'], 
+        curRow['site'],
+        curRow['born_year'],
+        curRow['num_games'],
+        curRow['val_home'],
+        curRow['country_home'],
+        curRow['fatt'],
+        curRow['founders'],
+        curRow['num_workers'],
+        curRow['coords'],
+        curRow['image_url']
+        ) )
+
+    
+    json_result = json.dumps(list, default = lambda x: x.__dict__);
+
+    return(json_result) 
 
 app.run()
 

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { MenuComponent } from './menu/menu.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +9,9 @@ import { MenuComponent } from './menu/menu.component';
 export class AppComponent {
   title = 'progetto-finale pippo';
 
-  constructor() {
-    
-    console.log("pippo")            
+  constructor(private router: Router){
 
-  }  
+  }
+ 
 
 }
