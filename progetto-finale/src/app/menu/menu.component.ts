@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { menuitem } from '../menuitem.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,11 +13,14 @@ export class MenuComponent implements OnInit {
   names:string[];
   menuItems:menuitem[] = undefined!;
 
-  constructor(private http: HttpClient){
+
+
+  constructor(private http: HttpClient, private router:Router){
 
     this.http.get<menuitem[]>('https://5000-loimattia-progfinaleang-2tqjxe2sdu8.ws-eu46.gitpod.io/').subscribe(data => {
       this.menuItems=data;
       console.log("menuItems", this.menuItems); 
+      
     }) 
 
     this.names=["pino","mino","rino","luigi","mario","matteo","marco","gianni","giorgio"]
@@ -27,6 +31,10 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
 
   }
+  
+  routing(){
+    this.router.navigate(['/details']);
+}
 
 
 }
