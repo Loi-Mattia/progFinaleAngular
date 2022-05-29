@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit {
 
   constructor(private http: HttpClient){
 
-    this.http.get<menuitem[]>('https://5000-loimattia-progfinaleang-493jwec7j23.ws-eu46.gitpod.io/').subscribe(data => {
+    this.http.get<menuitem[]>('https://5000-loimattia-progfinaleang-2tqjxe2sdu8.ws-eu46.gitpod.io/').subscribe(data => {
       this.menuItems=data;
       console.log("menuItems", this.menuItems); 
     }) 
