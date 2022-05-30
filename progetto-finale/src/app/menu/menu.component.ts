@@ -12,15 +12,19 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
   names:string[];
   menuItems:menuitem[] = undefined!;
-
+  
 
 
   constructor(private http: HttpClient, private router:Router){
-
-    this.http.get<menuitem[]>('https://5000-loimattia-progfinaleang-2tqjxe2sdu8.ws-eu46.gitpod.io/').subscribe(data => {
+    var str = new String(process.env.NG_APP_URL) 
+    var splits1 = str.substring(0, 8)
+    var splits2 = str.substring(8,)
+    var str3 = splits1+5000+"-"+splits2
+    console.log(str3)
+    this.http.get<menuitem[]>(str3).subscribe(data => {
       this.menuItems=data;
       console.log("menuItems", this.menuItems); 
-      
+    
     }) 
 
     this.names=["pino","mino","rino","luigi","mario","matteo","marco","gianni","giorgio"]

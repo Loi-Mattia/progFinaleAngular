@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'progetto-finale pippo';
 
   constructor(private router: Router){
-
+    console.log(process.env.NG_APP_URL)
   }
  
 
