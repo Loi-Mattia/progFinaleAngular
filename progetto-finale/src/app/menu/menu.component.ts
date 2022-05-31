@@ -38,6 +38,7 @@ export class MenuComponent implements OnInit {
   
   routing(){
     this.router.navigate(['/details']);
+ 
 }
 
 

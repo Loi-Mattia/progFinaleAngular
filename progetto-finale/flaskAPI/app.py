@@ -64,7 +64,7 @@ def home():
     return(json_result) 
 
 #endpoint dettaglio casa produttrice
-@app.route('/Details/<name>', methods=['GET'])
+@app.route('/details/<name>', methods=['GET'])
 def Details(name):
     
     myclient = pymongo.MongoClient("mongodb://Loi:IIeee1mm@cluster0-shard-00-00.ujobt.mongodb.net:27017,cluster0-shard-00-01.ujobt.mongodb.net:27017,cluster0-shard-00-02.ujobt.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-qtdhit-shard-0&authSource=admin&retryWrites=true&w=majority")
@@ -94,7 +94,6 @@ def Details(name):
     return(json_result) 
 
 app.run()
-
 
 
 

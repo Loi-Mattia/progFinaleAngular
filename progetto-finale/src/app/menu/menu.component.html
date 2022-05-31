@@ -2,6 +2,7 @@
     <div class="menu-item"*ngFor="let item of menuItems">
         <div class="over-hidden">
         <div class="menu-image"(click) = "routing()" style="background-image: url('{{item.image_url}}')"></div> 
+        
         </div>
         <div class="menu-item-name">
             {{item.home_prod}}
