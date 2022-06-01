@@ -9,11 +9,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './details/details.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    DetailsComponent,
+    DetailsComponent
+    
     
   ],
   imports: [

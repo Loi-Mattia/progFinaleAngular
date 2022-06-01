@@ -31,15 +31,15 @@ export class MenuComponent implements OnInit {
     }) 
 
     //NG_APP_URL=$GITPOD_WORKSPACE_URL ng serve --disable-host-check
-    
+    //npm install leaflet@1.7.1
   }
 
   ngOnInit(): void {
 
   }
   
-  routing(){
-    this.router.navigate(['/details']);
+  routing(_id: string){
+    this.router.navigate(['/details/' + _id ]);
  
 }
 

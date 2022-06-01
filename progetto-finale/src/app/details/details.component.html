@@ -1,17 +1,25 @@
 
     <div class="details-item">
-        <div class="details-map">
-            
-        </div>
-        <div class="details">
-            <span style="font-weight: bold;">From: </span>{{itemDetails.fatt}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.site}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.home_prod}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.born_year}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.founders}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.num_games}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.num_workers}}<br>
-            <span style="font-weight: bold;">From: </span>{{itemDetails.val_home}}<br>
-        </div>
-    </div>  
+        <div class="map-container">
+            <div class="map-frame">
+              <div id="map"></div>
+            </div>
+         </div>
+        <div class="details-footer">
+          <div class="details">
+              <span style="font-weight: bold;">From: </span>{{itemDetails.fatt}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.site}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.home_prod}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.born_year}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.founders}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.num_games}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.num_workers}}<br>
+              <span style="font-weight: bold;">From: </span>{{itemDetails.val_home}}<br>
+          </div>
+          <div class="details-image" style="background-image:url('{{itemDetails.image_url}}')">
+          </div>
+      </div>
+    </div>
+  
+  
 
