@@ -1,14 +1,17 @@
-<div class="menu-container">
-    
-    <div class="menu-item">
-        <div class="over-hidden">
+
+    <div class="details-item">
+        <div class="details-map">
             
-        <div class="menu-image"></div> 
         </div>
-        <div class="menu-item-name">
-            <li *ngFor="let item of menuItems"> 
-                {{item.home_prod}}               
-            </li>
+        <div class="details">
+            <span style="font-weight: bold;">From: </span>{{itemDetails.fatt}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.site}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.home_prod}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.born_year}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.founders}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.num_games}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.num_workers}}<br>
+            <span style="font-weight: bold;">From: </span>{{itemDetails.val_home}}<br>
         </div>
     </div>  
-</div>
+

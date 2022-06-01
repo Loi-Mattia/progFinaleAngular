@@ -71,10 +71,10 @@ def Details(name):
     mydb = myclient["videogamesDB"]
     mycol = mydb["homeP"]
     
-    list = [] 
+    det = prod_details
 
     for curRow in mycol.find({"home_prod":{"$regex":name}}):
-        list.append( prod_details(
+        det= prod_details(
         curRow['home_prod'], 
         curRow['site'],
         curRow['born_year'],
@@ -86,10 +86,10 @@ def Details(name):
         curRow['num_workers'],
         curRow['coords'],
         curRow['image_url']
-        ) )
+        ) 
 
     
-    json_result = json.dumps(list, default = lambda x: x.__dict__);
+    json_result = json.dumps(det, default = lambda x: x.__dict__);
 
     return(json_result) 
 

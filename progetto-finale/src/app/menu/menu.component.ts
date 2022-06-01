@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  names:string[];
+
   menuItems:menuitem[] = undefined!;
-  
+    //pip install flask
+    //pip install flask_cors
+    //pip install pymongo
+    //pip install flask_pymongo
 
 
   constructor(private http: HttpClient, private router:Router){
@@ -27,7 +30,6 @@ export class MenuComponent implements OnInit {
     
     }) 
 
-    this.names=["pino","mino","rino","luigi","mario","matteo","marco","gianni","giorgio"]
     //NG_APP_URL=$GITPOD_WORKSPACE_URL ng serve --disable-host-check
     
   }
