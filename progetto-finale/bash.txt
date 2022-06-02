@@ -1,0 +1,9 @@
+progetto: npm i -g @angular/cli
+src: npm i 
+src: NG_APP_URL=$GITPOD_WORKSPACE_URL ng serve --disable-host-check
+src: npm install leaflet@1.7.1
+python: pip install flask
+python: pip install flask_cors
+python: pip install pymongo
+python: pip install flask_pymongo
+python: python app.py

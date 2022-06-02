@@ -1,25 +1,30 @@
 
-    <div class="details-item">
-        <div class="map-container">
-            <div class="map-frame">
-              <div id="map"></div>
-            </div>
-         </div>
-        <div class="details-footer">
-          <div class="details">
-              <span style="font-weight: bold;">From: </span>{{itemDetails.fatt}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.site}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.home_prod}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.born_year}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.founders}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.num_games}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.num_workers}}<br>
-              <span style="font-weight: bold;">From: </span>{{itemDetails.val_home}}<br>
-          </div>
-          <div class="details-image" style="background-image:url('{{itemDetails.image_url}}')">
-          </div>
-      </div>
-    </div>
-  
-  
 
+<div class="details-item animate__animated animate__backInDown">
+  <div class="details-header">
+    <img  onclick="window.history.go(-1); return false;" class="back-img" src="https://www.nicepng.com/png/full/12-129931_go-back-icon-youtube-black-logo-render.png" />
+    {{itemDetails.home_prod}}</div>
+  <div class="map-container">
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+  </div>
+  <div class="details-footer">
+    <div class="details">
+      <div class="details-title">Nazione: </div>{{itemDetails.country_home}}<br>
+      <div class="details-title">Sede principale: </div>{{itemDetails.site}}<br>
+      <div class="details-title">Anno di fondazione: </div>{{itemDetails.born_year}}<br>
+      <div class="details-title">Fondata da: </div>{{itemDetails.founders}}<br>
+      <div class="details-title">Fatturato: </div>{{itemDetails.fatt}}<br>
+      <div class="details-title">Giochi prodotti: </div>{{itemDetails.num_games}}<br>
+      <div class="details-title">Dipendenti: </div>{{itemDetails.num_workers}}<br>
+      <div class="details-title">Valutazione: </div>
+
+      <img *ngFor='let in of stars(itemDetails.val_home) ;let i = index'
+        src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/24/Actions-rating-icon.png" />
+
+    </div>
+    <div class="details-image" style="background-image:url('{{itemDetails.image_url}}')">
+    </div>
+  </div>
+</div>

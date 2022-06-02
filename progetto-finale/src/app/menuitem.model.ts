@@ -10,6 +10,6 @@ export class menuitem{
     image_url: string = "";
     num_games: number = 0;
     num_workers: number = 0;
-    val_home: string = "";
+    val_home: number = 0;
 }
 

@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
+  stars(i: number) { return new Array(i); }
+  
   menuItems:menuitem[] = undefined!;
     //pip install flask
     //pip install flask_cors

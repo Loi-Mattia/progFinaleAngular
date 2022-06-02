@@ -1,11 +1,17 @@
+<div class="app-title">GAMES HUB</div>
 <div class="menu-container">
-    <div class="menu-item"*ngFor="let item of menuItems">
+    <div (click)="routing(item.home_prod)" class="menu-item" *ngFor="let item of menuItems">
         <div class="over-hidden">
-        <div class="menu-image"  (click)="routing(item.home_prod)"  style="background-image: url('{{item.image_url}}')"></div> 
-        
+            <div class="menu-image" 
+                style="background-image: url('{{item.image_url}}')"></div>
+
         </div>
         <div class="menu-item-name">
             {{item.home_prod}}
+            <div class="menu-stars">
+                <img *ngFor='let in of stars(item.val_home) ;let i = index'
+                    src="https://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/24/Actions-rating-icon.png" />
+            </div>
         </div>
-    </div>  
+    </div>
 </div>

@@ -15,9 +15,15 @@ export class DetailsComponent implements OnInit,AfterViewInit  {
   private long: any
   private id: string = "";
 
+  stars(i: number) {
+    return new Array(i);
+  }
+
   public itemDetails: menuitem = undefined!;
 
   private initMap(): void {
+
+    
 
     const icon = new L.Icon({
       iconUrl: "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
