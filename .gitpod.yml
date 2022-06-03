@@ -1,0 +1,15 @@
+tasks:
+  - name: flask
+    init: cd progetto-finale/flaskAPI && pip install flask && pip install flask_cors && pip install pymongo && pip install flask_pymongo && python app.py 
+  - name: project
+    init: npm i -g @angular/cli
+  - name: src
+    init: cd progetto-finale/src && npm i && NG_APP_URL=$GITPOD_WORKSPACE_URL ng serve --disable-host-check && npm install leaflet@1.7.1
+# Ports to expose on workspace startup
+ports:
+  - port: 4200
+    onOpen: open-browser
+    visibility: public
+  - port: 5000
+    visibility: public
+
